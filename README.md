@@ -1,4 +1,4 @@
-# stylelint-prettier [![Build Status](https://github.com/prettier/stylelint-prettier/workflows/CI/badge.svg?branch=master)](https://github.com/prettier/stylelint-prettier/actions?query=workflow%3ACI+branch%3Amaster)
+# stylelint-prettier [![Build Status](https://travis-ci.org/BPScott/stylelint-prettier.svg?branch=master)](https://travis-ci.org/BPScott/stylelint-prettier)
 
 Runs [Prettier](https://github.com/prettier/prettier) as a [Stylelint](https://stylelint.io/) rule and reports differences as individual Stylelint issues.
 
@@ -33,7 +33,8 @@ style.css
 ## Installation
 
 ```sh
-npm install --save-dev stylelint-prettier prettier
+npm install --save-dev eslint-plugin-prettier
+npm install --save-dev --save-exact prettier
 ```
 
 **_`stylelint-prettier` does not install Prettier or Stylelint for you._** _You must install these yourself._
@@ -57,32 +58,29 @@ If your desired formatting does not match the `prettier` output, you should use 
 
 To integrate this plugin with `stylelint-config-prettier`, you can use the `"recommended"` configuration:
 
-1.  In addition to the above installation instructions, install `stylelint-config-prettier`:
+1. In addition to the above installation instructions, install `stylelint-config-prettier`:
 
-    ```sh
-    npm install --save-dev stylelint-config-prettier
-    ```
+```sh
+npm install --save-dev stylelint-config-prettier
+```
 
-2.  Then replace the plugins and rules declarations in your `.stylelintrc` that you added in the prior section with:
+2. Then all you need in your `.stylelintrc` is:
 
-    ```json
-    {
-      "extends": ["stylelint-prettier/recommended"]
-    }
-    ```
+```json
+{
+  "extends": ["stylelint-prettier/recommended"]
+}
+```
 
 This does three things:
 
-1.  Enables the `stylelint-plugin-prettier` plugin.
-2.  Enables the `prettier/prettier` rule.
-3.  Extends the `stylelint-config-prettier` configuration.
+1. Enables the `stylelint-plugin-prettier` plugin.
+2. Enables the `prettier/prettier` rule.
+3. Extends the `stylelint-config-prettier` configuration.
 
 You can then set Prettier's own options inside a `.prettierrc` file.
 
 ## Options
-
-_stylelint-prettier will honor your `.prettierrc` file by default_. You only
-need this section if you wish to override those settings.
 
 > Note: While it is possible to pass options to Prettier via your Stylelint configuration file, it is not recommended because editor extensions such as `prettier-atom` and `prettier-vscode` **will** read [`.prettierrc`](https://prettier.io/docs/en/configuration.html), but **won't** read settings from Stylelint, which can lead to an inconsistent experience.
 
@@ -102,8 +100,4 @@ NB: This option will merge and override any config set with `.prettierrc` files 
 
 ## Contributing
 
-See [CONTRIBUTING.md](https://github.com/prettier/stylelint-prettier/blob/master/.github/CONTRIBUTING.md)
-
-## Inspiration
-
-The layout for this codebase and base configuration of prettier was taken from <https://github.com/prettier/eslint-plugin-prettier>
+See [CONTRIBUTING.md](https://github.com/prettier/eslint-plugin-prettier/blob/master/CONTRIBUTING.md)

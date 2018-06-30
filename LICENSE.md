@@ -1,6 +1,7 @@
-# The MIT License (MIT)
+The MIT License (MIT)
+=====================
 
-Copyright © 2018 Ben Scott
+Copyright © 2017 Ben Scott, Andres Suarez and Teddy Katz
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation

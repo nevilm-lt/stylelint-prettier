@@ -7,6 +7,5 @@ module.exports = {
   root: true,
   rules: {
     'node/no-unpublished-require': ['error', {allowModules: ['stylelint']}],
-    'node/no-missing-require': ['error', {allowModules: ['styled-components']}],
   },
 };
