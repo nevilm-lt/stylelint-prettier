@@ -1,43 +1,5 @@
 # Changelog
 
-## 2.0.0 (2021-11-05)
-
-Increase the minimum required versions of `stylelint`, `prettier` and `node`. No code changes have been required and v1.2.0 works with stylelint v14, however continuing to test old these old unsupported versions is getting more difficult thanks to internal API changes. (#198)
-
-- Minimum stylelint version is now v14 (drop support for v9.5 through v13.x)
-- Minimum prettier version is now v2 (drop support for v1.x)
-- Minimum node requirements is now ^12.22.0 || ^14.17.0 || >=16.0.0 (drop support for v8.x and v10.x)
-
-## 1.2.0 (2021-02-27)
-
-- Do not trigger prettier for .svelte and .component.html (angular) files. This avoids errors. Prettifying a subset of the file (i.e. just contents of `<style>` tags) using stylelint feels like unneeded work if you're about to run prettier over the whole file anyway (#160)
-
-## 1.1.2 (2019-12-14)
-
-- Account for user defined parser overrides when working out what files to skip (#39)
-- Add an extra check to quickly skip formatting CSS-in-JS object literals (#39)
-- Bump dev dependencies (#39)
-
-## 1.1.1 (2019-05-30)
-
-- Fix incorrect trailing whitespace on Windows (#24)
-
-## 1.1.0 (2019-05-12)
-
-- Do not trigger prettier for js, ts, vue, html and markdown files. In stylelint >=9.9.0 these files sometimes worked and sometimes threw errors. In stylelint >=9.10.0 they would either error or have incorrect indentation. Prettifying a subset of the file (i.e. just contents of `<style>` tags) using stylelint feels like unneeded work if you're about to run prettier over the whole file anyway (#22)
-
-## 1.0.7 (2019-05-07)
-
-- Add stylelint >9.2.1 as a peerDependency to help Yarn PNP support
-
-## 1.0.6 (2019-01-05)
-
-- Report unparsable code as linting issues instead of crashing (#14)
-
-## 1.0.5 (2018-11-16)
-
-- Specifying an explict syntax with `--syntax` will no longer crash when autofixing (#11)
-
 ## 1.0.4 (2018-11-11)
 
 - Do not pass stylelint built-in options `severity` and `messsage` to prettier (#10)
