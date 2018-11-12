@@ -584,60 +584,26 @@ testRule({
 });
 
 // Passing a syntax works
-testRule({
-  ruleName,
-  config: [true, {parser: 'scss', trailingComma: 'all'}],
-  customSyntax: 'postcss-scss',
+testRule(rule, {
+  ruleName: rule.ruleName,
+  config: [true, {parser: 'scss'}],
+  syntax: 'scss',
   fix: true,
+
   accept: [
     {
       description: 'Prettier Scss Valid - Setting Explicit Parser',
-      code: `$map: (\n  'alpha': 10,\n  'beta': 20,\n  'gamma': 30,\n);\n`,
+      code: `// I am a scss-specific comment\n$foo: ();\n`,
     },
   ],
   reject: [
     {
       description: 'Prettier Scss Invalid - Setting Explicit Parser',
-      code: `$map: (\n  'alpha': 10,\n  'beta': 20,\n  'gamma': 30\n);\n`,
-      fixed: `$map: (\n  'alpha': 10,\n  'beta': 20,\n  'gamma': 30,\n);\n`,
-      message: `Insert "," (prettier/prettier)`,
-      line: 4,
-      column: 14,
-    },
-  ],
-});
-
-// EOL Tests
-testRule({
-  ruleName,
-  config: [true, {endOfLine: 'auto'}],
-  fix: true,
-  accept: [
-    {
-      description: 'Prettier EOL Valid - UNIX',
-      code: `body {\n  font-size: 12px;\n}\np {\n  color: 'black';\n}\n`,
-    },
-    {
-      description: 'Prettier EOL Valid - Windows',
-      code: `body {\r\n  font-size: 12px;\r\n}\r\np {\r\n  color: 'black';\r\n}\r\n`,
-    },
-  ],
-  reject: [
-    {
-      description: 'Prettier EOL Invalid - UNIX',
-      code: `body {\n  font-size: 12px;\n}\np {\n  color: 'black';\n}`,
-      fixed: `body {\n  font-size: 12px;\n}\np {\n  color: 'black';\n}\n`,
-      message: `Insert \"⏎\" (prettier/prettier)`,
-      line: 6,
-      column: 2,
-    },
-    {
-      description: 'Prettier EOL Invalid - Windows',
-      code: `body {\r\n  font-size: 12px;\r\n}\r\np {\r\n  color: 'black';\r\n}`,
-      fixed: `body {\r\n  font-size: 12px;\r\n}\r\np {\r\n  color: 'black';\r\n}\r\n`,
-      message: `Insert \"␍⏎\" (prettier/prettier)`,
-      line: 6,
-      column: 2,
+      code: `// I am a scss-specific comment\n  $foo:();`,
+      fixed: `// I am a scss-specific comment\n$foo: ();\n`,
+      message: `Replace "··$foo:();" with "$foo:·();⏎" (prettier/prettier)`,
+      line: 1,
+      column: 33,
     },
   ],
 });
