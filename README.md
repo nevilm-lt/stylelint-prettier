@@ -1,4 +1,4 @@
-# stylelint-prettier [![Build Status](https://www.travis-ci.org/prettier/stylelint-prettier.svg?branch=master)](https://www.travis-ci.org/prettier/stylelint-prettier)
+# stylelint-prettier [![Build Status](https://github.com/prettier/stylelint-prettier/workflows/CI/badge.svg?branch=master)](https://github.com/prettier/stylelint-prettier/actions?query=workflow%3ACI+branch%3Amaster)
 
 Runs [Prettier](https://github.com/prettier/prettier) as a [Stylelint](https://stylelint.io/) rule and reports differences as individual Stylelint issues.
 
@@ -33,8 +33,7 @@ style.css
 ## Installation
 
 ```sh
-npm install --save-dev stylelint-prettier
-npm install --save-dev --save-exact prettier
+npm install --save-dev stylelint-prettier prettier
 ```
 
 **_`stylelint-prettier` does not install Prettier or Stylelint for you._** _You must install these yourself._
@@ -64,7 +63,7 @@ To integrate this plugin with `stylelint-config-prettier`, you can use the `"rec
     npm install --save-dev stylelint-config-prettier
     ```
 
-2.  Then all you need in your `.stylelintrc` is:
+2.  Then replace the plugins and rules declarations in your `.stylelintrc` that you added in the prior section with:
 
     ```json
     {
@@ -81,6 +80,9 @@ This does three things:
 You can then set Prettier's own options inside a `.prettierrc` file.
 
 ## Options
+
+_stylelint-prettier will honor your `.prettierrc` file by default_. You only
+need this section if you wish to override those settings.
 
 > Note: While it is possible to pass options to Prettier via your Stylelint configuration file, it is not recommended because editor extensions such as `prettier-atom` and `prettier-vscode` **will** read [`.prettierrc`](https://prettier.io/docs/en/configuration.html), but **won't** read settings from Stylelint, which can lead to an inconsistent experience.
 
